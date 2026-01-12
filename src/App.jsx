@@ -9,7 +9,6 @@ function App() {
   return (
     <>
     <div className="cursor-none">
-      <Snowfall color='#82C3D9'/>
     <SmoothCursorDemo />
     </div>
       <NavbarDemo>
