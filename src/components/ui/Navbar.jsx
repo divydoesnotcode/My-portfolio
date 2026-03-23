@@ -77,7 +77,7 @@ export function NavbarDemo({ children }) {
         </MobileNav>
       </Navbar>
       {/* Content Injection */}
-      <div className="pt-24 min-h-screen">
+      <div className="pt-10 min-h-screen">
         {children}
       </div>
       {/* Navbar */}
