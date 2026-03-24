@@ -9,8 +9,8 @@ const skillCategories = [
     accentCss: "rgba(180,83,9,",
     borderActive: "rgba(180,83,9,0.3)",
     skills: [
-      { name: "React",         level: 95 },
-      { name: "Next.js",       level: 90 },
+      { name: "React",         level: 90 },
+      { name: "Next.js",       level: 75 },
       { name: "TypeScript",    level: 88 },
       { name: "Tailwind CSS",  level: 92 },
       { name: "Framer Motion", level: 80 },
@@ -23,11 +23,11 @@ const skillCategories = [
     accentCss: "rgba(67,90,72,",
     borderActive: "rgba(67,90,72,0.3)",
     skills: [
-      { name: "Node.js",    level: 90 },
-      { name: "Express",    level: 88 },
-      { name: "REST APIs",  level: 92 },
-      { name: "GraphQL",    level: 75 },
-      { name: "Hono",       level: 70 },
+      { name: "Node.js",            level: 90 },
+      { name: "Express",            level: 88 },
+      { name: "REST APIs",          level: 92 },
+      { name: "GraphQL",            level: 52 },
+      { name: "API Handling",       level: 85 },
     ],
   },
   {
@@ -40,8 +40,8 @@ const skillCategories = [
       { name: "PostgreSQL", level: 88 },
       { name: "MongoDB",    level: 82 },
       { name: "Redis",      level: 75 },
-      { name: "Prisma",     level: 85 },
-      { name: "Drizzle",    level: 72 },
+      { name: "Prisma",     level: 67 },
+      { name: "MySQL",      level: 90 },
     ],
   },
   {
@@ -53,9 +53,9 @@ const skillCategories = [
     skills: [
       { name: "Git",            level: 93 },
       { name: "Docker",         level: 80 },
-      { name: "GitHub Actions", level: 78 },
+      { name: "Postman",        level: 87 },
       { name: "Vercel",         level: 90 },
-      { name: "Linux",          level: 75 },
+      { name: "Linux",          level: 98 },
     ],
   },
 ];
