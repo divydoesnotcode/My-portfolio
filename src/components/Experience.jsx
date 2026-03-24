@@ -15,12 +15,12 @@ const experiences = [
   {
     year: "2026 — Now",
     title: "Full Stack Developer - Intern",
-    company: "ProcureGenie Pvt. Ltd.",
+    company: "Procurement Genie Pvt. Ltd.",
     type: "Work",
     color: { r: 180, g: 83, b: 9 },   // Amber/Terracotta
     description:
       "Developing and maintaining complex web applications using React, Node.js, and PostgreSQL. Integrating AI agents to automate tasks.",
-    highlights: ["Ollama","React", "Node.js", "PostgreSQL", "Docker", "Next.js"],
+    highlights: ["Ollama", "React", "Node.js", "PostgreSQL", "Docker", "Next.js"],
   },
   {
     year: "2023 — 2026",
