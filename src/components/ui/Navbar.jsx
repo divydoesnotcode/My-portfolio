@@ -58,8 +58,10 @@ export function NavbarDemo({ children }) {
               <a
                 key={`mobile-link-${idx}`}
                 href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-stone-600 hover:text-stone-900 transition-colors duration-200">
+                className="relative text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200">
                 <span className="block">{item.name}</span>
               </a>
             ))}

@@ -107,7 +107,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       }}
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex backdrop-blur-[12px] border",
-        isHovered ? "bg-[#F5F0E8]/90 border-stone-200/80" : "bg-[#F5F0E8]/80 border-stone-200/60",
+        isHovered ? "bg-[var(--bg)]/90 border-[var(--border-strong)]" : "bg-[var(--bg)]/80 border-[var(--border)]",
         className,
       )}
     >
@@ -131,15 +131,17 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-stone-600 hover:text-stone-900 transition-colors duration-200"
+          className="relative px-4 py-2 text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200"
           key={`link-${idx}`}
           href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label={`Navigate to ${item.name}`}
         >
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-amber-100/50 border border-amber-200/60 shadow-[0_2px_8px_rgba(255,193,7,0.1)]"
+              className="absolute inset-0 h-full w-full rounded-full bg-[var(--accent-muted)] border border-[var(--accent)]/20 shadow-[0_2px_8px_var(--accent-muted)]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -186,7 +188,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       style={{ willChange: "transform, backdrop-filter" }}
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-0 py-2 lg:hidden backdrop-blur-[12px] border",
-        isHovered ? "bg-[#F5F0E8]/90 border-stone-200/80" : "bg-[#F5F0E8]/80 border-stone-200/60",
+        isHovered ? "bg-[var(--bg)]/95 border-[var(--border-strong)]" : "bg-[var(--bg)]/90 border-[var(--border)]",
         className,
       )}
     >
@@ -230,8 +232,8 @@ export const MobileNavMenu = ({
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg px-4 py-8 backdrop-blur-md border shadow-[0_4px_16px_rgba(26,22,16,0.1)]",
-            isHovered ? "bg-[#F5F0E8]/95 border-stone-200/80" : "bg-[#F5F0E8]/90 border-stone-200/60",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg px-4 py-8 backdrop-blur-md border shadow-[0_4px_16px_var(--border)]",
+            isHovered ? "bg-[var(--bg)]/98 border-[var(--border-strong)]" : "bg-[var(--bg)]/95 border-[var(--border)]",
             className,
           )}
         >
@@ -257,9 +259,9 @@ export const MobileNavToggle = ({
       className="p-2 focus:outline-none focus:ring-2 focus:ring-white/20 rounded-md transition-transform duration-300 hover:scale-105"
     >
       {isOpen ? (
-        <IconX className="text-stone-900 cursor-pointer hover:text-stone-600 transition-colors duration-300" />
+        <IconX className="text-[var(--fg)] cursor-pointer hover:text-[var(--accent)] transition-colors duration-300" />
       ) : (
-        <IconMenu2 className="text-stone-900 cursor-pointer hover:text-stone-600 transition-colors duration-300" />
+        <IconMenu2 className="text-[var(--fg)] cursor-pointer hover:text-[var(--accent)] transition-colors duration-300" />
       )}
     </button>
   );
@@ -269,7 +271,7 @@ export const NavbarLogo = () => {
   return (
     <a
       href="/"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-stone-900 group"
+      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-[var(--fg)] group"
       aria-label="Home"
     >
       <motion.img
@@ -307,20 +309,23 @@ export const NavbarButton = ({
 
   const variantStyles = {
     primary:
-      "bg-stone-900 text-stone-50 shadow-lg hover:shadow-xl border border-stone-800 focus:ring-stone-500/50",
+      "bg-[var(--fg)] text-[var(--bg)] shadow-lg hover:shadow-xl border border-[var(--fg)] hover:bg-[var(--accent)] focus:ring-[var(--accent)]/50",
     secondary:
-      "bg-transparent text-stone-600 hover:text-stone-900 border border-stone-200 hover:border-stone-400 focus:ring-stone-400",
+      "bg-transparent text-[var(--fg-muted)] hover:text-[var(--fg)] border border-[var(--border)] hover:border-[var(--border-strong)] focus:ring-[var(--border)]",
     dark:
       "bg-black text-white shadow-lg hover:shadow-xl border border-black focus:ring-stone-700",
   };
 
+  const Component = Tag as any;
   return (
-    <Tag
+    <Component
       href={href || undefined}
+      target={Tag === "a" || href ? "_blank" : undefined}
+      rel={Tag === "a" || href ? "noopener noreferrer" : undefined}
       className={cn(baseStyles, variantStyles[variant], className)}
       {...props}
     >
       {children}
-    </Tag>
+    </Component>
   );
 };

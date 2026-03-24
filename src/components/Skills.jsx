@@ -9,10 +9,10 @@ const skillCategories = [
     accentCss: "rgba(180,83,9,",
     borderActive: "rgba(180,83,9,0.3)",
     skills: [
-      { name: "React",         level: 90 },
-      { name: "Next.js",       level: 75 },
-      { name: "TypeScript",    level: 88 },
-      { name: "Tailwind CSS",  level: 92 },
+      { name: "React", level: 90 },
+      { name: "Next.js", level: 75 },
+      { name: "TypeScript", level: 88 },
+      { name: "Tailwind CSS", level: 92 },
       { name: "Framer Motion", level: 80 },
     ],
   },
@@ -23,11 +23,11 @@ const skillCategories = [
     accentCss: "rgba(67,90,72,",
     borderActive: "rgba(67,90,72,0.3)",
     skills: [
-      { name: "Node.js",            level: 90 },
-      { name: "Express",            level: 88 },
-      { name: "REST APIs",          level: 92 },
-      { name: "GraphQL",            level: 52 },
-      { name: "API Handling",       level: 85 },
+      { name: "Node.js", level: 90 },
+      { name: "Express", level: 88 },
+      { name: "REST APIs", level: 92 },
+      { name: "GraphQL", level: 52 },
+      { name: "API Handling", level: 85 },
     ],
   },
   {
@@ -38,10 +38,10 @@ const skillCategories = [
     borderActive: "rgba(110,87,115,0.3)",
     skills: [
       { name: "PostgreSQL", level: 88 },
-      { name: "MongoDB",    level: 82 },
-      { name: "Redis",      level: 75 },
-      { name: "Prisma",     level: 67 },
-      { name: "MySQL",      level: 90 },
+      { name: "MongoDB", level: 82 },
+      { name: "Redis", level: 75 },
+      { name: "Prisma", level: 67 },
+      { name: "MySQL", level: 90 },
     ],
   },
   {
@@ -51,11 +51,11 @@ const skillCategories = [
     accentCss: "rgba(122,106,83,",
     borderActive: "rgba(122,106,83,0.3)",
     skills: [
-      { name: "Git",            level: 93 },
-      { name: "Docker",         level: 80 },
-      { name: "Postman",        level: 87 },
-      { name: "Vercel",         level: 90 },
-      { name: "Linux",          level: 98 },
+      { name: "Git", level: 93 },
+      { name: "Docker", level: 80 },
+      { name: "Postman", level: 87 },
+      { name: "Vercel", level: 90 },
+      { name: "Linux", level: 98 },
     ],
   },
 ];
@@ -160,7 +160,7 @@ function SpotlightCard({ category, index }) {
           >
             <div className="flex justify-between items-center mb-1.5">
               <span
-        className="text-xs md:text-sm font-medium transition-colors duration-200"
+                className="text-xs md:text-sm font-medium transition-colors duration-200"
                 style={{
                   fontFamily: "var(--font-body)",
                   color: activeSkill === skill.name

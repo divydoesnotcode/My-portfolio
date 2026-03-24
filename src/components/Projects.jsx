@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "motion/react";
 import { ArrowUpRight, Github } from "lucide-react";
+import { LinkPreview } from "../components/ui/LinkPreview";
 
 const projects = [
   {
@@ -142,28 +143,26 @@ function GlassCard({ project, index }) {
             </span>
             <div className="gc-actions">
               {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <LinkPreview
+                  url={project.github}
+                  width={220}
+                  height={138}
                   className="gc-icon-btn"
-                  aria-label="View Source on GitHub"
                 >
                   <Github size={16} />
-                </a>
+                </LinkPreview>
               )}
               {project.vercel && (
-                <a
-                  href={project.vercel}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <LinkPreview
+                  url={project.vercel}
+                  width={220}
+                  height={138}
                   className="gc-icon-btn"
-                  aria-label="View Deployed on Vercel"
                 >
                   <svg width="12" height="12" viewBox="0 0 76 65" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
                   </svg>
-                </a>
+                </LinkPreview>
               )}
             </div>
           </div>
@@ -392,7 +391,8 @@ export function Projects() {
         }
 
         /* Icon button: glass pill */
-        .gc-icon-btn {
+        .gc-icon-btn,
+        .gc-actions a.gc-icon-btn {
           width: 36px;
           height: 36px;
           border-radius: 50%;
@@ -406,7 +406,8 @@ export function Projects() {
           transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.2s;
           backdrop-filter: blur(8px);
         }
-        .gc-icon-btn:hover {
+        .gc-icon-btn:hover,
+        .gc-actions a.gc-icon-btn:hover {
           background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);
           border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.3);
           color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1);
