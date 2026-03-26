@@ -309,11 +309,11 @@ export const NavbarButton = ({
 
   const variantStyles = {
     primary:
-      "bg-[var(--fg)] text-[var(--bg)] shadow-lg hover:shadow-xl border border-[var(--fg)] hover:bg-[var(--accent)] focus:ring-[var(--accent)]/50",
+      "bg-[var(--fg)] text-[var(--bg)] shadow-lg hover:shadow-xl hover:bg-[var(--accent)] focus:ring-[var(--accent)]/50",
     secondary:
-      "bg-transparent text-[var(--fg-muted)] hover:text-[var(--fg)] border border-[var(--border)] hover:border-[var(--border-strong)] focus:ring-[var(--border)]",
+      "bg-transparent text-[var(--fg-muted)] hover:text-[var(--fg)] focus:ring-[var(--border)]",
     dark:
-      "bg-black text-white shadow-lg hover:shadow-xl border border-black focus:ring-stone-700",
+      "bg-black text-white shadow-lg hover:shadow-xl focus:ring-stone-700",
   };
 
   const Component = Tag as any;
