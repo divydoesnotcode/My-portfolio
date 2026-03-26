@@ -23,10 +23,11 @@ const experiences = [
     highlights: ["Ollama", "React", "Node.js", "PostgreSQL", "Docker", "Next.js"],
   },
   {
-    year: "2023 — 2026",
+    year: "2023 — Now",
     title: "B.E in Computer Science & Engineering - AI/ML",
     company: "New L.J. Institute of Engineering and Technology",
     type: "Education",
+    grade: "CGPA: 9.06", // Update with actual grade
     color: { r: 110, g: 87, b: 115 },   // Muted Plum/Dusty Purple
     description:
       "Pursuing a Bachelor of Engineering in Computer Science with a specialization in Artificial Intelligence and Machine Learning. Gaining comprehensive knowledge in core computer science subjects and advanced AI/ML concepts.",
@@ -37,6 +38,7 @@ const experiences = [
     title: "Diploma in Computer Engineering",
     company: "R. C. Technical Institute",
     type: "Education",
+    grade: "CGPA: 8.63", // Update with actual grade
     color: { r: 67, g: 90, b: 72 },   // Muted Sage/Olive
     description:
       "Coursework included Data Structures, Algorithms, Web Development, and Database Management Systems.",
@@ -122,6 +124,13 @@ function TimelineEntry({ exp, index }) {
         {/* Title + company */}
         <h3 className="tl-title">{exp.title}</h3>
         <p className="tl-company" style={{ color: `${accent}0.8)` }}>{exp.company}</p>
+
+        {/* Grade */}
+        {exp.grade && (
+          <p className="tl-grade" style={{ color: `${accent}0.9)` }}>
+            {exp.grade}
+          </p>
+        )}
 
         {/* Description */}
         <p className="tl-desc">{exp.description}</p>
@@ -388,6 +397,12 @@ export function Experience() {
           font-size: clamp(12px,1vw,14px);
           font-weight: 500;
           margin: 0 0 14px;
+        }
+        .tl-grade {
+          font-family: var(--font-body);
+          font-size: clamp(12px,1vw,14px);
+          font-weight: 600;
+          margin: -6px 0 14px;
         }
         .tl-desc {
           font-family: var(--font-body);
