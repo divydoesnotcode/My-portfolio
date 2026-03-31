@@ -28,9 +28,15 @@ function isPointerDevice() {
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [hasFinePointer, setHasFinePointer] = useState(false)
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(max-width: 767px)').matches : false
+  )
 
   useEffect(() => {
-    const updatePointer = () => setHasFinePointer(isPointerDevice())
+    const updatePointer = () => {
+      setHasFinePointer(isPointerDevice())
+      setIsMobile(window.matchMedia('(max-width: 767px)').matches)
+    }
     updatePointer()
     window.addEventListener('resize', updatePointer)
     return () => window.removeEventListener('resize', updatePointer)
@@ -73,14 +79,13 @@ function App() {
             <Suspense fallback={null}>
             </Suspense>
           </NavbarDemo>
-          <div className="hidden md:block">
+          {!isMobile ? (
             <WebcamPixelGridDemo />
-          </div>
-          <div className="block md:hidden">
+          ) : (
             <Suspense fallback={null}>
               <Footer />
             </Suspense>
-          </div>
+          )}
         </>
       )}
     </>
