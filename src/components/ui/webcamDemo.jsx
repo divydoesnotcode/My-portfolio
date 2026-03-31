@@ -18,24 +18,11 @@ const navLinks = [
 
 export function WebcamPixelGridDemo() {
   const year = new Date().getFullYear();
-  const [themeColors, setThemeColors] = useState({
-    bg: "#F5F0E8",
-    border: "rgba(26, 22, 16, 0.18)",
-  });
-
-  useEffect(() => {
-    const updateColors = () => {
-      const style = getComputedStyle(document.documentElement);
-      setThemeColors({
-        bg: style.getPropertyValue("--bg").trim() || (document.documentElement.classList.contains("dark") ? "#12100C" : "#F5F0E8"),
-        border: style.getPropertyValue("--border-strong").trim() || "rgba(26, 22, 16, 0.18)",
-      });
-    };
-    updateColors();
-    const observer = new MutationObserver(updateColors);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
+  // Remove theme-syncing logic; forcing dark mode
+  const themeColors = {
+    bg: "#12100C",
+    border: "rgba(245, 240, 232, 0.18)",
+  };
 
   const handleScroll = (e, href) => {
     if (!href.startsWith("#")) return;
@@ -66,7 +53,7 @@ export function WebcamPixelGridDemo() {
           mirror={true}
           gapRatio={0.08}
           invertColors={false}
-          darken={document.documentElement.classList.contains("dark") ? 0.6 : 0.25}
+          darken={0.6}
           borderColor={themeColors.border}
           borderOpacity={0.12}
           className="w-full h-full"
@@ -74,7 +61,7 @@ export function WebcamPixelGridDemo() {
       </div>
 
       {/* Surface Overlay */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[var(--bg)] via-transparent to-[var(--bg)] opacity-80 pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#12100C] via-transparent to-[#12100C] opacity-80 pointer-events-none" />
 
       {/* Footer Content */}
       <div className="relative z-10 w-full">
@@ -141,6 +128,15 @@ export function WebcamPixelGridDemo() {
 
       <style>{`
         .webcam-footer {
+          /* Force Dark Theme Variables */
+          --bg: #12100C;
+          --fg: #F5F0E8;
+          --fg-muted: #A8A092;
+          --border-strong: rgba(245, 240, 232, 0.18);
+          --surface: rgba(245, 240, 232, 0.05);
+          --accent: #D97706;
+          --accent-muted: rgba(217, 119, 6, 0.15);
+
           position: relative;
           min-height: 60vh;
           width: 100%;
@@ -151,6 +147,7 @@ export function WebcamPixelGridDemo() {
           border-top: 1px solid var(--border-strong);
           overflow: hidden;
           padding: 0;
+          color: var(--fg);
         }
 
         .webcam-footer-top {
