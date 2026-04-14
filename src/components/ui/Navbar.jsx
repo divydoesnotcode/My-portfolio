@@ -40,7 +40,7 @@ export function NavbarDemo({ children }) {
           <NavItems items={navItems} />
           <div className="flex items-center gap-2 sm:gap-4 relative z-[70]">
             <AnimatedThemeToggler className="p-2 rounded-full text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200 flex items-center justify-center focus:outline-none " />
-            <a href="mailto:workwithdivy@gmail.com">
+            <a href="mailto:workwithdivy@gmail.com" target="_blank" rel="noopener noreferrer">
               <NavbarButton variant="primary">Mail</NavbarButton>
             </a>
           </div>

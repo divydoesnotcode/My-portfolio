@@ -305,7 +305,7 @@ export const NavbarButton = ({
     | React.ComponentPropsWithoutRef<"button">
   )) => {
   const baseStyles =
-    "px-4 py-2 rounded-md text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition-all duration-200 inline-block text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black";
+    "px-4 py-2 rounded-full text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center justify-center gap-1.5 text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black active:scale-95 select-none  ";
 
   const variantStyles = {
     primary:
